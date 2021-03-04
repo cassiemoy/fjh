@@ -7,23 +7,22 @@ import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 
-const position = [51.505, -0.09]
+const position = [40.7557, -73.8831]
+const attribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a></a>'
+
 
 const App = () => (
-  <h1>hi
-
   <MapContainer center={position} zoom={13} scrollWheelZoom={false}>
-    <TileLayer
-      attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-    />
+     <TileLayer
+        attribution={attribution}
+        url='https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'
+      />
     <Marker position={position}>
       <Popup>
         A pretty CSS3 popup. <br /> Easily customizable.
       </Popup>
     </Marker>
   </MapContainer>
-  </h1>
 )
 
 App.propTypes = {
